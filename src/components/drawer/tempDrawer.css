@@ -1,0 +1,28 @@
+.slidesImage {
+    height: 20px;
+    width: 20px;
+}
+
+.listItems{
+    margin-left: 20px;
+    font-size: 14px;
+    color: gray;
+    font-weight: 500;
+}
+
+.list_Item{
+    margin-right: 10px;
+}
+
+.list_Item:hover{
+    background: #F4F4F9;
+    color: #000;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+.listStyle {
+    margin : 0 8px;
+    margin-top: 15px;
+}
+

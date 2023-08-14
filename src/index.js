@@ -3,12 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { StateProvider } from './Store/Store';
+import reducer, { initialstate } from './Reducer/reducer';
+import { AuthContextProvider } from './context/AuthContext';
+import { HashContextProvider } from './context/HashContext';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+
+<HashContextProvider>
+    <AuthContextProvider>
+        <StateProvider initialstate={initialstate} reducer={reducer}>
+            <App />
+        </StateProvider>
+    </AuthContextProvider>
+</HashContextProvider>
+    
+    
 );
 
 // If you want to start measuring performance in your app, pass a function

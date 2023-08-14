@@ -1,0 +1,53 @@
+.formImg {
+    width: 40px;
+    height: 40px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+    padding: 5px 0px;
+    background-color: white;
+    color: #000;
+    position: sticky;
+    height: 47px;
+}
+
+.headerInfo {
+    display: flex;
+    align-items: center;
+}
+
+.headerSearch {
+    display: flex;
+    align-items: center;
+    background: #f4f4f9;
+    width: 700px;
+    height: 45px;
+    border-radius: 10px;
+    color: red;
+}
+
+.headerSearch > input {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100%;
+    background: transparent;
+    color: gray
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+}
+
+.info{
+    color: #5f6368;
+    font-size:22px;
+    padding-left: 5px;
+    font-family: 'Google Sans' ,Roboto,Arial,sans-serif;
+}
+   
