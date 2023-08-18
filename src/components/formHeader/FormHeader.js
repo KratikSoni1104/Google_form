@@ -26,7 +26,7 @@ function FormHeader() {
 
     const handleOpenDialog = async () => {
         console.log(formId);
-        const link = `https://google-form-tau.vercel.app/forms/form_link/${formId}`;
+        const link = `https://google-form-tau.vercel.app/userforms/form_link/${formId}`;
         setShareableLink(link)
         setOpenDialog(true);
     }
