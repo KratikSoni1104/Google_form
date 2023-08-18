@@ -24,7 +24,7 @@ function ViewForm() {
 
       const fetchFormData = async (formId) => {
         try {
-          const response = await axios.get(`${BackEnd_Url}/api/forms/data/${formId}`);
+          const response = await axios.get(`${BackEnd_Url}/api/form/data/${formId}`);
           setQuestions(response.data);
             setDoc_name(response.data.doc_name)
             setDoc_desc(response.data.doc_des)
