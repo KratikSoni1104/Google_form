@@ -28,7 +28,7 @@ function ViewForm() {
             setQuestions(response.data.questions);
             setDoc_name(response.data.doc_name)
             setDoc_desc(response.data.doc_des)
-            console.log(response.data.questions);
+            console.log(questions);
         } catch (error) {
           console.error(error);
         }
