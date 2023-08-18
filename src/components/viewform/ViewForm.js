@@ -25,9 +25,10 @@ function ViewForm() {
       const fetchFormData = async (formId) => {
         try {
           const response = await axios.get(`${BackEnd_Url}/api/form/data/${formId}`);
-          setQuestions(response.data.questions);
+            setQuestions(response.data.questions);
             setDoc_name(response.data.doc_name)
             setDoc_desc(response.data.doc_des)
+            console.log(response.data.question);
         } catch (error) {
           console.error(error);
         }
@@ -130,7 +131,7 @@ function ViewForm() {
                                             required={question.required}
                                             style={{margnLeft:"5px",marginRight:"5px"}}
                                             onChange={e => {selectCheck(e.target.checked, question.question , op.optionText)}}
-                                            /> {op.optionText}
+                                            /> {op.optionsText}
                                             </label>): (
 
                                             <label>                                                
@@ -143,7 +144,7 @@ function ViewForm() {
                                             required={question.required}
                                             style={{margnLeft:"5px",marginRight:"5px"}}
                                             onChange={e => {selectInput(question.question , e.target.value)}}
-                                            /> {op.optionText}
+                                            /> {op.optionsText}
                                             </label>
                                             )
                                             )
@@ -159,7 +160,7 @@ function ViewForm() {
                                             required={question.required}
                                             style={{margnLeft:"5px",marginRight:"5px"}}
                                             onChange={e => {select( question.question , op.optionText)}}
-                                            /> {op.optionText}
+                                            /> {op.optionsText}
                                             </label>)
 
                                         }
