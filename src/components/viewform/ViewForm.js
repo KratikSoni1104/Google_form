@@ -25,7 +25,7 @@ function ViewForm() {
       const fetchFormData = async (formId) => {
         try {
           const response = await axios.get(`${BackEnd_Url}/api/form/data/${formId}`);
-          setQuestions(response.data);
+          setQuestions(response.data.questions);
             setDoc_name(response.data.doc_name)
             setDoc_desc(response.data.doc_des)
         } catch (error) {
@@ -104,11 +104,11 @@ function ViewForm() {
         <div className='user_form'>
             <div className='user_form_section'>
                 <div className='user_title_section'>
-                    <Typography style={{fontSize:"26px"}}>{doc_name}</Typography>
-                    <Typography style={{fontSize:"13px"}}>{doc_desc}</Typography>
+                    <Typography style={{fontSize:"26px"}}>{doc_name? doc_name : "Untitled Form"}</Typography>
+                    <Typography style={{fontSize:"13px"}}>{doc_desc? doc_desc : "Add Description"}</Typography>
                 </div>
 
-                {questions && questions.map((question , idx) => (
+                {questions && questions?.map((question , idx) => (
                     <div className='user_form_questions' key={question.question}>
                         <Typography style={{fontSize:"15px" , fontWeight:"400",letterSpacing:".1px",lineHeight:"24px",paddingBottom:"8px",}}>{idx+1}.  {question.question}</Typography>
 

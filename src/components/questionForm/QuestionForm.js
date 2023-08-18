@@ -14,14 +14,14 @@ import { useStateValue } from '../../Store/Store';
 import { BackEnd_Url } from '../../services/config';
 import { HashContext } from '../../context/HashContext';
 
-function QuestionForm() {
+function QuestionForm({formRefId}) {
 
     const [docName , setDocName] = useState("Untitled document")
 
     const [docDesc , setDocDesc] = useState("Add Description")
 
-    const {formId} = useContext(HashContext);
-    const id = formId
+    //const {formRefId} = useContext(HashContext);
+    const id = formRefId
     
 
     // console.log(id);

@@ -35,7 +35,7 @@ function allyProps(index) {
   };
 }
 
-function CenteredTabs() {
+function CenteredTabs({formRefId}) {
   const [value, setValue] = useState(0);
 
   return (
@@ -54,7 +54,7 @@ function CenteredTabs() {
         </Tabs>
 
         <TabPanel value={value} index={0}>
-          <Question_form/>
+          <Question_form formRefId={formRefId}/>
         </TabPanel>
 
         <TabPanel value={value} index={1}>

@@ -6,11 +6,11 @@ import { useLocation } from 'react-router-dom'
 
 function Form() {
   const location = useLocation();
-  const formId = location.state ? location.state.id : null;
+  const formRefId = location.state ? location.state.id : null;
   return (
     <div>
-        <FormHeader formId={formId}/>
-        <CenteredTabs formId={formId}/>
+        <FormHeader formId={formRefId}/>
+        <CenteredTabs formRefId={formRefId}/>
     </div>
   )
 }

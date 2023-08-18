@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react'
-import { FolderOpen , ColorLens , MoreVert} from '@mui/icons-material'
+import React, { useContext, useEffect, useState } from 'react'
+import { FolderOpen , ColorLens , MoreVert, AirplaySharp} from '@mui/icons-material'
 import {FiStar ,FiSettings} from "react-icons/fi"
 import { IconButton , Avatar, DialogActions, DialogContent, DialogTitle, Dialog} from '@mui/material'
 import { BsEye } from 'react-icons/bs'
@@ -10,24 +10,38 @@ import { useNavigate } from 'react-router-dom'
 import { BackEnd_Url } from '../../services/config'
 import axios from 'axios'
 import { HashContext } from '../../context/HashContext'
+import { useFormId } from '../../context/FormContext'
 
 
 function FormHeader() {
 
     const [openDialog, setOpenDialog] =  useState(false);
+    const [copied, setCopied] = useState(false);
     const [shareableLink , setShareableLink] = useState("")
-    const {formId} = useContext(HashContext)
+    //const {formId} = useContext(HashContext)
     const [{doc_name} , dispatch] = useStateValue();
     const navigate = useNavigate();
+    const {formId} = useFormId();
 
-    const handleCopyLink = () => {
-
+    const handleCopyLink = async () => {
+        try{
+            await navigator.clipboard.writeText(shareableLink)
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
+        } catch (err) {
+            console.log(err);
+        }
     }
+
+    useEffect(() => {
+        if (formId) {
+          const link = `https://google-form-tau.vercel.app/userforms/form_link/${formId}`;
+          setShareableLink(link);
+        }
+      }, [formId]);
 
     const handleOpenDialog = async () => {
         console.log(formId);
-        const link = `https://google-form-tau.vercel.app/userforms/form_link/${formId}`;
-        setShareableLink(link)
         setOpenDialog(true);
     }
 
@@ -75,7 +89,7 @@ function FormHeader() {
                 </DialogContent>
                 <DialogActions className="dialog-buttons">
                     <Button color='primary' variant='contained' onClick={handleCopyLink} className="copy-link-button">
-                        Copy Link
+                        {copied ? 'Copied' : 'Copy Link' }
                     </Button>
                     <Button variant='outlined' onClick={() => setOpenDialog(false)} className="close-button">
                         Close

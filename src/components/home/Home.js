@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import {useStateValue} from "../../Store/Store"
 import { BackEnd_Url } from '../../services/config'
 import { HashContext } from '../../context/HashContext'
+import {useFormId} from "../../context/FormContext"
 
 function Home() {
 
@@ -19,6 +20,7 @@ function Home() {
     const navigate = useNavigate();
     const [{doc_name , doc_desc } , dispatch] = useStateValue();
     const {userId} = useContext(HashContext);
+    const {formId , setFormId} = useFormId()
 
     // Use useRef to store the formId
     var formIdRef = useRef(null);
@@ -36,8 +38,8 @@ function Home() {
     }
 
     const openDoc = (file) => {
-        dispatch({type:"SET_FORM_ID" , payload: file._id})
-        navigate(`/form/${file._id}` , {state:{id:file._id}})
+        setFormId(file._id)
+        navigate(`/form/${file._id}`, {state:{id:file._id}})
     }
 
     const handleRename = async () => {

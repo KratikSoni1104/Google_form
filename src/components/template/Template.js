@@ -24,7 +24,6 @@ function Template() {
             })
             console.log(res.data);
             navigate(`/form/${res.data._id}` , {state:{id:res.data._id}})
-            dispatch({type:"SET_FORM_ID" , payload: res.data._id})
         } catch(err) {
             console.log(err);
         }

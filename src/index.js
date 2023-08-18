@@ -7,18 +7,21 @@ import { StateProvider } from './Store/Store';
 import reducer, { initialstate } from './Reducer/reducer';
 import { AuthContextProvider } from './context/AuthContext';
 import { HashContextProvider } from './context/HashContext';
+import { FormIdProvider } from './context/FormContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-<HashContextProvider>
-    <AuthContextProvider>
-        <StateProvider initialstate={initialstate} reducer={reducer}>
-            <App />
-        </StateProvider>
-    </AuthContextProvider>
-</HashContextProvider>
+<FormIdProvider>
+    <HashContextProvider>
+        <AuthContextProvider>
+            <StateProvider initialstate={initialstate} reducer={reducer}>
+                <App />
+            </StateProvider>
+        </AuthContextProvider>
+    </HashContextProvider>
+</FormIdProvider>
     
     
 );
