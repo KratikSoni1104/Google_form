@@ -13,6 +13,7 @@ function App() {
         <Route path="/form/:id" element={<Form />} />
         <Route path="/response" element={<UserForm />}/>
         <Route path="/home" element={<MainPage />} />
+        <Route path="/forms/form_link/:formId" element={<UserForm />}/>
       </Routes>
     </Router>
       
