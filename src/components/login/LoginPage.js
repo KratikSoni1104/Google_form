@@ -26,9 +26,17 @@ function LoginPage() {
 
   const signIn = () => {
     auth.signInWithPopup(provider)
-    .then((result) => {
+    .then(async (result) =>  {
         const user = result.user
         authDispatch({type:"LOGIN_SUCCESS" , authUser:user.displayName , email:user.email , photoUrl:user.photoURL})
+        // try {
+        //     const res = await axios.post(`${BackEnd_Url}/api/auth/storeGoogleUser` , {
+        //       email: user.email,
+        //       username: user.displayName,
+        //     })
+        // } catch (err) {
+        //   hashDispatch({type:"LOGIN_FAILURE" , payload:err})
+        // }
         navigate("/home");
     })
     .catch((error) => (console.log(error)))
@@ -46,8 +54,9 @@ const handleLogin = async e => {
   try {
     const res = await axios.post(`${BackEnd_Url}/api/auth/login` , credentials)
     console.log("hello" , res);
-    hashDispatch({type:"LOGIN_SUCCESS" , payload : res.data})
-    navigate("/home")
+    hashDispatch({type:"LOGIN_SUCCESS" , payload : res.data , id : res.data._id})
+    console.log(res.data);
+    navigate("/home" , {state:{id:res.data._id}})
   } catch (err) {
     hashDispatch({type:"LOGIN_FAILURE" , payload:err.response.data.message})
     console.log(error);
@@ -59,9 +68,9 @@ const handleRegister = async (e) => {
   hashDispatch({type:"LOGIN_START"})
   try {
     const res = await axios.post(`${BackEnd_Url}/api/auth/register` , credentials)
-    hashDispatch({type:"LOGIN_SUCCESS" , payload:res.data})
+    hashDispatch({type:"LOGIN_SUCCESS" , payload:res.data , id : res.data._id})
     console.log(hashUser);
-    navigate("/home")
+    navigate("/home" , {state:{id:res.data._id}})
   } catch(err) {
     hashDispatch({type:"LOGIN_FAILURE" , payload:err.response.data.message})
     console.log(error);
@@ -82,19 +91,19 @@ const handleRegister = async (e) => {
             <input className="text" type="text" id="username" placeholder="Username" required autocomplete="off" onChange={(e) => {handleChange(e)}}/>
             <input className="password" type="password" id="password" placeholder="Password" autocomplete="off" required onChange={(e) => {handleChange(e)}}/>
             <div className="signIn">
-              <button type="submit" onClick={handleLogin}>Login</button>
+              <button disabled={loading} className="loginButton" type="submit" onClick={handleLogin}>Login</button>
               <div className="or-divider login-or">Or</div>
-              <button type="submit" onClick={handleRegister}>Register</button>
+              <button disabled={loading} className="loginButton" type="submit" onClick={handleRegister}>Register</button>
             </div>
           </form>
         </div>
       </div>
-      <div className="or-divider">Or</div>
+      {/* <div className="or-divider">Or</div>
       <div className="google-login"> 
         <div className="google-container">
           <button className="signInButton" onClick={signIn}><img src="/images/google-icon.png" className="google-icon" />Sign In with Google</button>
         </div>
-      </div>
+      </div> */}
       
     </div>
     

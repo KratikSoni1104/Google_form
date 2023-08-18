@@ -1,28 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { MoreVert, UnfoldMore} from '@mui/icons-material'
 import { IconButton } from '@mui/material'
 import "./template.css"
-import { v4 as uuid } from "uuid";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios"
 import { BackEnd_Url } from '../../services/config'
+import {HashContext} from "../../context/HashContext"
 
 function Template() {
     const navigate = useNavigate();
+    const {userId , dispatch} = useContext(HashContext)
+    console.log("user id" , userId);
 
-    const createForm = async () => {
-        const id = uuid();
-       
+    const createForm = async () => {       
         var questions_list=[{question:"Question", questionType: "radio", options:[{optionText:"option 1"}], open: true, required:false}]
 
         try {
-            const res = await axios.post(`${BackEnd_Url}/api/form/add_questions` , {
+            const res = await axios.post(`${BackEnd_Url}/api/form/add_questions/${userId}` , {
                 doc_name:"Untitled Form",
                 doc_desc:"Add Description",
-                questions: questions_list
+                questions: questions_list,
+                createdBy: userId
             })
-            console.log(res.data._id);
-            navigate(`/form/${id}` , {state:{id:res.data._id}})
+            console.log(res.data);
+            navigate(`/form/${res.data._id}` , {state:{id:res.data._id}})
+            dispatch({type:"SET_FORM_ID" , payload: res.data._id})
         } catch(err) {
             console.log(err);
         }

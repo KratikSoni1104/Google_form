@@ -54,7 +54,7 @@ function CenteredTabs() {
         </Tabs>
 
         <TabPanel value={value} index={0}>
-          <Question_form />
+          <Question_form/>
         </TabPanel>
 
         <TabPanel value={value} index={1}>

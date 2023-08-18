@@ -12,6 +12,7 @@
     background-color: white;
     margin-left: 160px;
     margin-right: 160px;
+    position: relative;
 }
 .main_top{
     display: flex;
@@ -93,3 +94,59 @@
     align-items: center;
 }
 
+.rename-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    background-color: #fff;
+    padding: 5px 20px 20px;
+    border-radius: 10px;
+    /* z-index: 1; */
+    background-color: rgba(255, 255, 255);
+    border:1px solid rgba(0, 0, 0 , 0.1);
+    box-shadow: 13px 15px 15px -3px rgba(0,0,0,0.1);
+}
+
+.main_rename {
+    width: 330px;
+    position: sticky;
+    top: 0;
+    left: 600px;
+    bottom: 400px;
+    display: flex;
+    justify-content: center;
+    /* background-color: rgba(0, 0, 0, 0.613); */
+}
+
+.main_docs.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.rename_button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.rename-head {
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+.rename-text {
+    margin-top: 0;
+    color: gray;
+}
+
+.rename-input {
+    /* outline: none; */
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 4px;
+}
+
+.rename-input:hover{
+    border : 1px solid #6E2594;
+}

@@ -4,6 +4,8 @@ const INITIAL_STATE = {
   user: JSON.parse(localStorage.getItem("user")) || null,
   loading: false,
   error: null,
+  userId:"",
+  formId:""
 };
 
 export const HashContext = createContext(INITIAL_STATE);
@@ -15,24 +17,32 @@ const HashReducer = (state, action) => {
         user: null,
         loading: true,
         error: null,
+        userId:"",
+        formId:""
       };
     case "LOGIN_SUCCESS":
       return {
         user: action.payload,
         loading: false,
         error: null,
+        userId:action.id,
+        formId:""
       };
     case "LOGIN_FAILURE":
       return {
         user: null,
         loading: false,
         error: action.payload,
+        userId:"",
+        formId:""
       };
     case "LOGOUT":
       return {
         user: null,
         loading: false,
         error: null,
+        userId:"",
+        formId:""
       };
 
     case "REGISTER_START":
@@ -40,6 +50,8 @@ const HashReducer = (state, action) => {
           user: null,
           loading: true,
           error: null,
+          userId:"",
+          formId:""
         };
   
     case "REGISTER_SUCCESS":
@@ -47,6 +59,8 @@ const HashReducer = (state, action) => {
         user: action.payload,
         loading: false,
         error: null,
+        userId:"",
+        formId:""
       };
   
     case "REGISTER_FAILURE":
@@ -54,6 +68,8 @@ const HashReducer = (state, action) => {
         user: null,
         loading: false,
         error: action.payload,
+        userId:"",
+        formId:""
       };
       
     case "CLEAR_ERROR":
@@ -61,7 +77,14 @@ const HashReducer = (state, action) => {
         user: null,
         loading: false,
         error: null,
+        userId:"",
+        formId:""
       };
+    case "SET_FORM_ID":
+      return {
+        ...state,
+        formId: action.payload
+      }
     default:
       return state;
   }
@@ -80,6 +103,8 @@ export const HashContextProvider = ({ children }) => {
         user: state.user,
         loading: state.loading,
         error: state.error,
+        userId:state.userId,
+        formId:state.formId,
         dispatch,
       }}
     >

@@ -11,15 +11,18 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import axios from "axios"
 import { useLocation, useParams } from 'react-router-dom';
 import { useStateValue } from '../../Store/Store';
-import { actionTypes } from '../../Reducer/reducer';
+import { BackEnd_Url } from '../../services/config';
+import { HashContext } from '../../context/HashContext';
 
 function QuestionForm() {
 
     const [docName , setDocName] = useState("Untitled document")
 
     const [docDesc , setDocDesc] = useState("Add Description")
-    const location = useLocation();
-    const id = location.state.id;
+
+    const {formId} = useContext(HashContext);
+    const id = formId
+    
 
     // console.log(id);
     const [{} , dispatch] = useStateValue()
@@ -44,7 +47,7 @@ function QuestionForm() {
     useEffect(() => {
         const data_adding = async () => {
             try {
-                const res = await axios.get(`/api/form/data/${id}`);
+                const res = await axios.get(`${BackEnd_Url}/api/form/data/${id}`);
                 var question_data = res.data.questions;
                 var doc_desc = res.data.doc_desc;
                 var document_name = res.data.doc_name;
@@ -208,7 +211,7 @@ function QuestionForm() {
         })
         
         try{
-            await axios.put(`/api/form/updateData/${id}` , {
+            await axios.put(`${BackEnd_Url}/api/form/updateData/${id}` , {
                 doc_name:docName,
                 doc_desc:docDesc,
                 questions:questions
