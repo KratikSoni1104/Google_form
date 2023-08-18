@@ -130,7 +130,7 @@ function ViewForm() {
                                             className="form-check-input"
                                             required={question.required}
                                             style={{margnLeft:"5px",marginRight:"5px"}}
-                                            onChange={e => {selectCheck(e.target.checked, question.question , op.optionText)}}
+                                            onChange={e => {selectCheck(e.target.checked, question.question , op.optionsText)}}
                                             /> {op.optionsText}
                                             </label>): (
 
@@ -159,7 +159,7 @@ function ViewForm() {
                                             className="form-check-input"
                                             required={question.required}
                                             style={{margnLeft:"5px",marginRight:"5px"}}
-                                            onChange={e => {select( question.question , op.optionText)}}
+                                            onChange={e => {select( question.question , op.optionsText)}}
                                             /> {op.optionsText}
                                             </label>)
 
