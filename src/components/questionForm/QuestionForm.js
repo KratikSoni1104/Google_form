@@ -104,8 +104,12 @@ function QuestionForm() {
 
     function handleInput(e, i , j) {
         var newQues = [...questions]
-        newQues[i].options[j].optionsText = e.target.value
+        var newOpt = [...newQues[i].options]
+        newOpt[j].optionsText = e.target.value
+
+        newQues[i].options = newOpt
         setQuestions(newQues)
+        console.log(newQues);
     }
 
     function deleteInput(i , j) {
@@ -303,7 +307,7 @@ function QuestionForm() {
                                                     }
 
                                                     <div>
-                                                        <input type="text" className='text_input' placeholder='option' value={op.optionsText} onChange={(e) => handleInput(e , i , j)}/>
+                                                        <input type="text" className='text_input' placeholder='option' value={op.optionsText} onChange={(e) => {handleInput(e , i , j)}}/>
                                                     </div>
 
                                                     <CropOriginal style={{color:"#5f6368"}} />
