@@ -9,7 +9,7 @@ import { BackEnd_Url } from '../../services/config';
 function ViewForm() {
 
     const {formId} = useParams();
-    var quest = [];
+    var [quest , setQuest] = useState([]);
     var post_answer = []
     const [questions, setQuestions] = useState(null);
     const [doc_name , setDoc_name] = useState("");
@@ -34,20 +34,39 @@ function ViewForm() {
         }
       };
 
+    // useEffect(() => {
+    //     if (questions) {
+    //         questions.forEach(q => (
+    //             answer.push({
+    //                 "question": q.question,
+    //                 "answer": ""
+    //             })
+    //         ));
+    
+    //         questions.forEach(q => (
+    //             quest.push({"header": q.question, "key": q.question})
+    //         ));
+    //     }
+    // }, []); // Add questions as a dependency
+
     useEffect(() => {
         if (questions) {
-            questions.forEach(q => (
-                answer.push({
-                    "question": q.question,
-                    "answer": ""
-                })
-            ));
+            const initialAnswers = questions.map(q => ({
+                "question": q.question,
+                "answer": ""
+            }));
     
-            questions.forEach(q => (
-                quest.push({"header": q.question, "key": q.question})
-            ));
+            setAnswer(initialAnswers);
+    
+            const questHeaders = questions.map(q => ({
+                "header": q.question,
+                "key": q.question
+            }));
+    
+            setQuest(questHeaders);
         }
-    }, []); // Add questions as a dependency
+    }, [questions]);
+    
     
 
     const select = (question , option) => {
