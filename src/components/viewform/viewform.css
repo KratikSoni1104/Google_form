@@ -28,6 +28,7 @@
     text-decoration: underline;
     cursor: pointer;
     color: rgb(48, 125, 232);
+    margin-top: 15px;
 }
 
 .user_title_section>p{

@@ -2,10 +2,18 @@ import React from 'react'
 import { useStateValue } from '../../Store/Store'
 import "./submitted.css"
 import { Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import {useFormId} from "../../context/FormContext"
 
 function Submitted() {
 
   const [{doc_name}] = useStateValue();
+  const navigate = useNavigate();
+  const {formId} = useFormId();
+
+  const handleSubmit = () => {
+    navigate(`/userforms/form_link/${formId}`);
+  }
 
   return (
     <div className='submit'>
@@ -15,7 +23,7 @@ function Submitted() {
                     <Typography style={{fontSize:"26px"}}>{doc_name? doc_name : "Untitled Form"}</Typography>
 
                     <p>Your response has been recorded.</p>
-                    <a>Submit another response</a>
+                    <a onClick={() => {handleSubmit()}}>Submit another response</a>
             </div>
 
           <div className='user_footer'>

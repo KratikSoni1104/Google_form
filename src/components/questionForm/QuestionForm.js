@@ -465,7 +465,7 @@ function QuestionForm({formRefId}) {
             </DragDropContext>
 
             <div className='save_form'>
-                <Button color='primary' variant='contained' onClick={commitToDB} style={{fontSize:"13px"}}>Save</Button>
+                <Button color='primary' variant='contained' onClick={commitToDB} style={{fontSize:"13px" , marginTop:"15px"}}>Save</Button>
             </div>
            
         </div>
