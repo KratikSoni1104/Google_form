@@ -5,6 +5,7 @@ import "./viewform.css"
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { BackEnd_Url } from '../../services/config';
+import {setFormId} from "../../context/FormContext"
 
 function ViewForm() {
 
@@ -106,6 +107,7 @@ function ViewForm() {
         ))
 
         console.log(post_answer);
+        setFormId(formId)
 
         try {
             await axios.post(`${BackEnd_Url}/api/form/student_response/${doc_name}` , {
