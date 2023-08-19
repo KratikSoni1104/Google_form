@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStateValue } from '../../Store/Store'
 import "./submitted.css"
+import { Typography } from '@mui/material';
 
 function Submitted() {
 
