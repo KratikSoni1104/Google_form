@@ -17,12 +17,9 @@ function Submitted() {
                     <p>Your response has been recorded.</p>
                     <a>Submit another response</a>
             </div>
-          <div className='submission'>
-            
-          </div>
 
           <div className='user_footer'>
-                    Google Form
+                    <span>Google</span> Form
           </div>
 
         </div>
