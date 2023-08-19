@@ -106,7 +106,7 @@ function ViewForm() {
         ))
 
         console.log(post_answer);
-        setFormId()
+        
 
         try {
             await axios.post(`${BackEnd_Url}/api/form/student_response/${doc_name}` , {
