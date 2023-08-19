@@ -19,7 +19,7 @@ function Submitted() {
             </div>
 
           <div className='user_footer'>
-                    <span>Google</span> Form
+            Google<span>Form</span> 
           </div>
 
         </div>
