@@ -22,7 +22,7 @@
     margin-bottom: 8px;
 }
 
-.user_form_questions{
+.submission{
     background-color: white;
     border-radius: 8px;
     padding: 30px 25px;
@@ -30,10 +30,7 @@
     margin-bottom: 8px;
 }
                                   
- .user_form_submit{
-  float:left;
-}
- .user_footer{
+.user_footer{
     margin-bottom: 0;
     text-align:center;
     font-size: medium;
