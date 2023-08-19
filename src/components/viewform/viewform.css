@@ -6,6 +6,7 @@
 
 .submit{
     background-color:#F4F4F9;
+    height: 100vh;
 }
 .user_form_section{
     margin:auto;
@@ -24,14 +25,21 @@
 
 .user_title_section>a{
     text-decoration: underline;
+    cursor: pointer;
     color: rgb(48, 125, 232);
 }
 
+.user_title_section>p{
+    font-size: 12px;
+}
 
                                   
 .user_footer{
     margin-bottom: 0;
     text-align:center;
-    font-size: medium;
-    font-weight: 500;
+    font-size: 30px;
+}
+
+.user_footer>span {
+    font-weight: 400;
 }
