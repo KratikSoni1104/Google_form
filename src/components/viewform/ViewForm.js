@@ -117,7 +117,7 @@ function ViewForm() {
             console.log(err);
         }
 
-        navigate("/submitted")
+        navigate("/submitted" , {state : {formId}})
     }
 
   return (

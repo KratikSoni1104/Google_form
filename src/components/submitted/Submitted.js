@@ -2,14 +2,15 @@ import React from 'react'
 import { useStateValue } from '../../Store/Store'
 import "./submitted.css"
 import { Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {useFormId} from "../../context/FormContext"
 
 function Submitted() {
 
   const [{doc_name}] = useStateValue();
   const navigate = useNavigate();
-  const {formId} = useFormId();
+  const location = useLocation();
+  const formId = location.state || {};
 
   const handleSubmit = () => {
     navigate(-1);
