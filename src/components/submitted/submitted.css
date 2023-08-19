@@ -8,6 +8,7 @@
     background-color:#F4F4F9;
 }
 .user_form_section{
+    margin-top: 10px;
     margin:auto;
     width:44%;
     display: flex;
@@ -18,6 +19,7 @@
     border-top:8px solid rgb(103, 58, 183);
     border-radius: 8px;
     padding:15px 25px;
+    /* margin-top: 15px; */
     text-transform: capitalize;
     margin-bottom: 8px;
 }
@@ -38,4 +40,21 @@
     text-align:center;
     font-size: medium;
     font-weight: 500;
+}
+
+.user_title_section>a{
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(48, 125, 232);
+    margin-top: 15px;
+}
+
+
+.user_footer>span {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.user_title_section>p{
+    font-size: 12px;
 }

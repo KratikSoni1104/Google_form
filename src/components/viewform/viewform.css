@@ -23,18 +23,6 @@
     text-transform: capitalize;
     margin-bottom: 8px;
 }
-
-.user_title_section>a{
-    text-decoration: underline;
-    cursor: pointer;
-    color: rgb(48, 125, 232);
-    margin-top: 15px;
-}
-
-.user_title_section>p{
-    font-size: 12px;
-}
-
                                   
 .user_footer{
     margin-top: 20px;
@@ -43,6 +31,4 @@
     font-size: 25px;
 }
 
-.user_footer>span {
-    font-weight: 400;
-}
+
