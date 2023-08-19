@@ -87,9 +87,9 @@ const handleRegister = async (e) => {
           <h2>Login</h2>
           {error && <span style={{color:"Red"}}>* {error}</span>}
           <form id="login-form">
-            <input className="text" type="text" id="email" placeholder="Email" required autocomplete="off" onChange={(e) => {handleChange(e)}}/>
-            <input className="text" type="text" id="username" placeholder="Username" required autocomplete="off" onChange={(e) => {handleChange(e)}}/>
-            <input className="password" type="password" id="password" placeholder="Password" autocomplete="off" required onChange={(e) => {handleChange(e)}}/>
+            <input className="text" type="text" id="email" placeholder="Email" required autoComplete="off" onChange={(e) => {handleChange(e)}}/>
+            <input className="text" type="text" id="username" placeholder="Username" required autoComplete="off" onChange={(e) => {handleChange(e)}}/>
+            <input className="password" type="password" id="password" placeholder="Password" autoComplete="off" required onChange={(e) => {handleChange(e)}}/>
             <div className="signIn">
               <button disabled={loading} className="loginButton" type="submit" onClick={handleLogin}>Login</button>
               <div className="or-divider login-or">Or</div>
