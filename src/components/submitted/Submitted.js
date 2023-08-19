@@ -12,7 +12,7 @@ function Submitted() {
   const {formId} = useFormId();
 
   const handleSubmit = () => {
-    navigate(`/userforms/form_link/${formId}`);
+    navigate(-1);
   }
 
   return (
