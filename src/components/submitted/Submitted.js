@@ -13,10 +13,12 @@ function Submitted() {
         <div className='user_form_section'>
             <div className='user_title_section'>
                     <Typography style={{fontSize:"26px"}}>{doc_name? doc_name : "Untitled Form"}</Typography>
+
+                    <p>Your response has been recorded.</p>
+                    <a>Submit another response</a>
             </div>
           <div className='submission'>
-            <p>Your response has been recorded.</p>
-            <a>Submit another response</a>
+            
           </div>
 
           <div className='user_footer'>
