@@ -22,13 +22,12 @@
     margin-bottom: 8px;
 }
 
-.submission{
-    background-color: white;
-    border-radius: 8px;
-    padding: 30px 25px;
-    text-transform: capitalize;
-    margin-bottom: 8px;
+.user_title_section>a{
+    text-decoration: underline;
+    color: rgb(48, 125, 232);
 }
+
+
                                   
 .user_footer{
     margin-bottom: 0;
