@@ -310,7 +310,7 @@ function QuestionForm({formRefId}) {
                                                         <input type="text" className='text_input' placeholder='option' value={op.optionsText} onChange={(e) => {handleInput(e , i , j)}}/>
                                                     </div>
 
-                                                    <CropOriginal style={{color:"#5f6368"}} />
+                                                    {/* <CropOriginal style={{color:"#5f6368"}} /> */}
                                                     <IconButton aria-label='delete'>
                                                         <Close onClick={() => deleteInput( i , j)}/>
                                                     </IconButton>

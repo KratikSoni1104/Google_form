@@ -10,9 +10,8 @@ function Submitted() {
   const [{doc_name}] = useStateValue();
   const navigate = useNavigate();
   const location = useLocation();
-  const formId = location.state || {};
-  const {accept} = useFormId();
-  console.log(accept);
+  const formId = location.state.formId || {};
+  const accept = location.state.accept || {};
 
   const handleSubmit = () => {
     navigate(-1);

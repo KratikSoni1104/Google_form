@@ -103,6 +103,8 @@ function ViewForm() {
 
     const submit = async () => {
 
+
+
         answer.map(ans => (
             post_answer[ans.question] = ans.answer
         ))
@@ -130,7 +132,7 @@ function ViewForm() {
             console.log(err);
         }
 
-        navigate("/submitted" , {state : {formId}})
+        navigate("/submitted" , {state : {formId : formId, accept:accept}})
     }
 
   return (
@@ -144,7 +146,7 @@ function ViewForm() {
 
                 {questions && questions?.map((question , idx) => (
                     <div className='user_form_questions' key={question.question}>
-                        <Typography style={{fontSize:"15px" , fontWeight:"400",letterSpacing:".1px",lineHeight:"24px",paddingBottom:"8px",}}>{idx+1}.  {question.question}</Typography>
+                        <Typography style={{fontSize:"15px" , fontWeight:"400",letterSpacing:".1px",lineHeight:"24px",paddingBottom:"8px",}}>{idx+1}.  {question.question}{question.required ? '*' : ""}</Typography>
 
                         {question.options.map((op , j) => (
 

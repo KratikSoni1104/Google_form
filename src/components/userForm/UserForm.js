@@ -91,7 +91,7 @@ function UserForm() {
 
                 {questions && questions.map((question , idx) => (
                     <div className='user_form_questions' key={question.question}>
-                        <Typography style={{fontSize:"15px" , fontWeight:"400",letterSpacing:".1px",lineHeight:"24px",paddingBottom:"8px",}}>{idx+1}.  {question.question}</Typography>
+                        <Typography style={{fontSize:"15px" , fontWeight:"400",letterSpacing:".1px",lineHeight:"24px",paddingBottom:"8px",}}>{idx+1}.  {question.question} <span style={{color:"red"}}>{question.required ? '*' : ""}</span></Typography>
 
                         {question.options.map((op , j) => (
 
