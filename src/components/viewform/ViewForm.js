@@ -145,7 +145,7 @@ function ViewForm() {
 
                         {question.options.map((op , j) => (
 
-                            <div key={op.optionText} style={{marginBottom:"5px"}}>
+                            <div key={op.optionsText} style={{marginBottom:"5px"}}>
                                 <div style={{display:"flex"}}>
                                     <div className='form_check'>
 
