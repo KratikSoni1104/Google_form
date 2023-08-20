@@ -109,10 +109,11 @@ function ViewForm() {
         
 
         try{
-            const res = await axios.post(`${BackEnd_Url}/api/form/submit` , {
+            const res = await axios.post(`${BackEnd_Url}/api/form/submit/${formId}` , {
                 formId:formId,
                 answers:answer
             })
+            console.log(res);
         } catch(err) {
             console.log(err);
         }
