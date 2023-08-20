@@ -108,6 +108,15 @@ function ViewForm() {
         console.log(post_answer);
         
 
+        try{
+            const res = await axios.post(`${BackEnd_Url}/api/form/submit` , {
+                formId:formId,
+                answers:answer
+            })
+        } catch(err) {
+            console.log(err);
+        }
+
         try {
             await axios.post(`${BackEnd_Url}/api/form/student_response/${doc_name}` , {
             "column":quest,
