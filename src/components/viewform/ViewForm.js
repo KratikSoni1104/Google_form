@@ -105,7 +105,7 @@ function ViewForm() {
             post_answer[ans.question] = ans.answer
         ))
 
-        console.log(post_answer);
+        console.log(answer);
         
 
         try{
