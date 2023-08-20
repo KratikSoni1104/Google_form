@@ -95,7 +95,7 @@ function UserForm() {
 
                         {question.options.map((op , j) => (
 
-                            <div key={op.optionText} style={{marginBottom:"5px"}}>
+                            <div key={op.optionsText} style={{marginBottom:"5px"}}>
                                 <div style={{display:"flex"}}>
                                     <div className='form_check'>
 
@@ -106,12 +106,12 @@ function UserForm() {
                                             <input
                                             type={question.questionType}
                                             name={idx}
-                                            value={op.optionText}
+                                            value={op.optionsText}
                                             className="form-check-input"
                                             required={question.required}
                                             style={{margnLeft:"5px",marginRight:"5px"}}
-                                            onChange={e => {selectCheck(e.target.checked, question.question , op.optionText)}}
-                                            /> {op.optionText}
+                                            onChange={e => {selectCheck(e.target.checked, question.question , op.optionsText)}}
+                                            /> {op.optionsText}
                                             </label>): (
 
                                             <label>                                                
@@ -119,12 +119,12 @@ function UserForm() {
 
                                             type={question.questionType}
                                             name={idx}
-                                            value={op.optionText}
+                                            value={op.optionsText}
                                             className="form-check-input"
                                             required={question.required}
                                             style={{margnLeft:"5px",marginRight:"5px"}}
                                             onChange={e => {selectInput(question.question , e.target.value)}}
-                                            /> {op.optionText}
+                                            /> {op.optionsText}
                                             </label>
                                             )
                                             )
@@ -135,12 +135,12 @@ function UserForm() {
                                             <input
                                             type={question.questionType}
                                             name={idx}
-                                            value={op.optionText}
+                                            value={op.optionsText}
                                             className="form-check-input"
                                             required={question.required}
                                             style={{margnLeft:"5px",marginRight:"5px"}}
-                                            onChange={e => {select( question.question , op.optionText)}}
-                                            /> {op.optionText}
+                                            onChange={e => {select( question.question , op.optionsText)}}
+                                            /> {op.optionsText}
                                             </label>)
 
                                         }
