@@ -12,6 +12,7 @@ function Submitted() {
   const location = useLocation();
   const formId = location.state || {};
   const {accept} = useFormId();
+  console.log(accept);
 
   const handleSubmit = () => {
     navigate(-1);

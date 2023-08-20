@@ -20,7 +20,7 @@ function ViewForm() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log(formId);
+        //console.log(formId);
         fetchFormData(formId);
     }, [formId]);
 

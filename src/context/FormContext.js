@@ -8,7 +8,7 @@ export function useFormId() {
 
 export function FormIdProvider({ children }) {
   const [formId, setFormId] = useState(null);
-  const [accept , setAccept] = useState(null);
+  const [accept , setAccept] = useState(true);
 
   return (
     <FormIdContext.Provider value={{ formId, setFormId , accept , setAccept}}>
