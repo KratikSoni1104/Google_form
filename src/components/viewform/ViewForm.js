@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import {Button, Typography} from '@mui/material'
+import {Button, Typography, useFormControl} from '@mui/material'
 import { useStateValue } from '../../Store/Store'
 import "./viewform.css"
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { BackEnd_Url } from '../../services/config';
+import { useFormId } from '../../context/FormContext';
 
 function ViewForm() {
 
@@ -15,6 +16,7 @@ function ViewForm() {
     const [doc_name , setDoc_name] = useState("");
     const [doc_desc , setDoc_desc] = useState("");
     const [answer , setAnswer] = useState([]);
+    const {accept} = useFormId();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -107,15 +109,16 @@ function ViewForm() {
 
         console.log(answer);
         
-
-        try{
-            const res = await axios.post(`${BackEnd_Url}/api/form/submit/${formId}` , {
-                formId:formId,
-                answers:answer
-            })
-            console.log(res);
-        } catch(err) {
-            console.log(err);
+        if(accept) {
+            try {
+                const res = await axios.post(`${BackEnd_Url}/api/form/submit/${formId}`, {
+                    formId:formId,
+                    answers:answer
+                })
+                console.log(res);
+            } catch(err) {
+                console.log(err);
+            }
         }
 
         try {
