@@ -42,14 +42,18 @@ function CenteredTabs({formRefId}) {
   const [responseCount , setResponseCount] = useState(0);
 
   useEffect(() => {
-
-    // try{
-    //   const res = axios.get(`${BackEnd_Url}/api/form/responseCount/${formRefId}`)
-    //   setResponseCount(res.count)
-    // } catch(err) {
-    //   console.log(err);
-    // }
+    fetchResponseCount();
   } ,[])
+
+  const fetchResponseCount = () => {
+    try{
+      const res = axios.get(`${BackEnd_Url}/api/form/responseCount/${formRefId}`)
+      //setResponseCount(res)
+      console.log(res);
+    } catch(err) {
+      console.log(err);
+    }
+  }
 
   return (
     <div>
