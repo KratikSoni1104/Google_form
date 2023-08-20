@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IconButton, Paper, Switch, Tabs, Typography } from '@mui/material';
 import { Tab } from '@mui/material';
 import PropTypes from 'prop-types';
 import Question_form from "../questionForm/QuestionForm";
 import { MoreVert } from '@mui/icons-material';
 import "./tab.css"
+import { BackEnd_Url } from '../../services/config';
+import axios from 'axios';
 
 
 function TabPanel(props) {
@@ -37,6 +39,17 @@ function allyProps(index) {
 
 function CenteredTabs({formRefId}) {
   const [value, setValue] = useState(0);
+  const [responseCount , setResponseCount] = useState(0);
+
+  useEffect(() => {
+
+    try{
+      const res = axios.get(`${BackEnd_Url}/api/form/responseCount/${formRefId}`)
+      setResponseCount(res.count)
+    } catch(err) {
+      console.log(err);
+    }
+  } ,[])
 
   return (
     <div>
@@ -62,7 +75,9 @@ function CenteredTabs({formRefId}) {
           <div className="submit" style={{height: "76vh"}}>
                 <div className="user_form">
                         <div className="user_form_section">
-                            <div className="user_form_questions" style={{display: "flex" ,flexDirection: "column" ,marginBottom: "20px"}}></div>
+                            <div className="user_form_questions" style={{display: "flex" ,flexDirection: "column" ,marginBottom: "20px"}}>
+                              {responseCount}  Responses
+                            </div>
                                 <div style={{display: "flex" ,flexDirection: "row" ,alignItems: "center" ,justifycontent: "space-between"}}>
                                   <Typography style={{fontSize:"15px" , fontWeight:"400",letterSpacing:".1px",lineHeight:"24px",paddingBottom:"8px"}}></Typography>
                                 </div>
