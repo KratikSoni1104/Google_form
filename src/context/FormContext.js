@@ -8,9 +8,10 @@ export function useFormId() {
 
 export function FormIdProvider({ children }) {
   const [formId, setFormId] = useState(null);
+  const [accept , setAccept] = useState(null);
 
   return (
-    <FormIdContext.Provider value={{ formId, setFormId }}>
+    <FormIdContext.Provider value={{ formId, setFormId , accept , setAccept}}>
       {children}
     </FormIdContext.Provider>
   );

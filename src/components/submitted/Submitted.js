@@ -11,6 +11,7 @@ function Submitted() {
   const navigate = useNavigate();
   const location = useLocation();
   const formId = location.state || {};
+  const {accept} = useFormId();
 
   const handleSubmit = () => {
     navigate(-1);
@@ -23,7 +24,7 @@ function Submitted() {
             <div className='user_title_section'>
                     <Typography style={{fontSize:"26px"}}>{doc_name? doc_name : "Untitled Form"}</Typography>
 
-                    <p>Your response has been recorded.</p>
+                    <p>{accept ? 'Your response has been recorded.' : 'This form is no longer accepting responses.'}</p>
                     <a onClick={() => {handleSubmit()}}>Submit another response</a>
             </div>
 
