@@ -61,8 +61,9 @@ function CenteredTabs({formRefId}) {
 
   const handleAccept = (e) => {
     console.log(e.target.checked);
+    const newChecked = e.target.checked
     setAccepting(e.target.checked)
-    setAccept(e.target.checked)
+    setAccept(newChecked)
   }
 
   return (
