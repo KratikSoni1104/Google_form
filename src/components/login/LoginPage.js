@@ -84,7 +84,7 @@ const handleRegister = async (e) => {
     <div className="login">
       <div className="mainContainer">
         <div className="container">
-          <h2>Login</h2>
+          <p className="login_text">Google Forms</p>
           {error && <span style={{color:"Red"}}>* {error}</span>}
           <form id="login-form">
             <input className="text" type="text" id="email" placeholder="Email" required autoComplete="off" onChange={(e) => {handleChange(e)}}/>

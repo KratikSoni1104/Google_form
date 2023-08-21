@@ -45,13 +45,17 @@ function FormHeader() {
         setOpenDialog(true);
     }
 
+    const handleFormName = (e) => {
+        
+    }
+
 
 
   return (
     <div className='form_header'>
         <div className='form_header_left'>
             <img className='formImg' src="/images/form_image.png" alt="no image" />
-            <input className='form_name' type="text" placeholder='Untitled Form' value={doc_name}/>
+            <input className='form_name' type="text" placeholder='Untitled Form' value={doc_name} onChange={e => handleFormName(e)}/>
             <FolderOpen className='form_header_icon' style={{marginRight:"10px"}}></FolderOpen>
             <FiStar className='form_header_icon' style={{marginRight:"10px"}} />
             <span>All changes saved in Drive</span>
