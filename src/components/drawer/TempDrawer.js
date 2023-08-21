@@ -32,50 +32,64 @@ function TempDrawer() {
               <span style={{color: "blue" ,fontWeight: "500", fontSize: "22px" ,fontFamily: "'Product Sans' Arial, sans-serif"}}>g</span>
               <span style={{color: "green" ,fontWeight: "500", fontSize: "22px", fontFamily: "'Product Sans' Arial,sans-serif"}}>l</span>
               <span style={{color:"red" ,fontweight: "500" ,fontSize: "22px" ,marginRight: "10px" ,fontFamily:"'Product Sans''Arial,sans-serif"}}>e</span>
-              <span style={{color: "#5f6368" ,fontweight: "500" ,fontSize: "22px" ,fontFamily: "'Product Sans' ,Arial, sans-serif"}}> Docs</span>
+              <span style={{color: "#5f6368" ,fontweight: "500" ,fontSize: "22px" ,fontFamily: "'Product Sans' ,Arial, sans-serif"}}> Forms</span>
             </ListItemText>
           </ListItem>
         </List>
         <Divider />
 
         <List className='listStyle'>
-          <ListItem className='list_Item'>
-            <img className="slidesImage" src="/images/2993697_brand_brands_docs_google_logo_icon.png" alt=""/>
-            <div className="listItems">Docs</div>
-          </ListItem>
-          <ListItem className='list_Item'>
-            <img className="slidesImage" src="/images/569111_docs_excel_google_document_file_icon.png" alt=""/>
-            <div className="listItems">Sheets</div>
-          </ListItem>
-          <ListItem className='list_Item'>
-            <img className="slidesImage" src="/images/2993687_brand_brands_google_logo_logos_icon.png" alt=""/>
-            <div className="listItems">Slides</div>
-          </ListItem>
-          <ListItem className='list_Item'>
-            <img className="slidesImage" src="/images/form_image.png" alt=""/>
-            <div className="listItems">Forms</div>
-          </ListItem>
+          <a href='https://docs.google.com/document/u/0/' target='blank' className='list_links'>
+            <ListItem className='list_Item'>
+              <img className="slidesImage" src="/images/2993697_brand_brands_docs_google_logo_icon.png" alt=""/>
+              <div className="listItems">Docs</div>
+            </ListItem>
+          </a>
+          <a href='https://docs.google.com/spreadsheets/u/0/' target='blank' className='list_links'>
+            <ListItem className='list_Item'>
+              <img className="slidesImage" src="/images/569111_docs_excel_google_document_file_icon.png" alt=""/>
+              <div className="listItems">Sheets</div>
+            </ListItem>
+          </a>
+          <a href='https://docs.google.com/presentation/u/0/' target='blank' className='list_links'>
+            <ListItem className='list_Item'>
+              <img className="slidesImage" src="/images/2993687_brand_brands_google_logo_logos_icon.png" alt=""/>
+              <div className="listItems">Slides</div>
+            </ListItem>
+          </a>
+          <a href='https://docs.google.com/forms/u/0/' target='blank'  className='list_links'>
+            <ListItem className='list_Item'>
+              <img className="slidesImage" src="/images/form_image.png" alt=""/>
+              <div className="listItems">Forms</div>
+            </ListItem>
+          </a>
         </List>
         <Divider />
 
         <List className='listStyle'>
-          <ListItem className='list_Item'>
-            <FiSettings />
-            <div className='listItems'>Settings</div>
-          </ListItem>
-          <ListItem className='list_Item'>
-            <BsQuestionCircle />
-            <div className='listItems'>Help & Feedback</div>
-          </ListItem>
+          <a href='https://support.google.com/accounts/answer/3118621?hl=en' target='blank' className='list_links'>
+            <ListItem className='list_Item'>
+              <FiSettings style={{color:"#000"}}/>
+              <div className='listItems'>Settings</div>
+            </ListItem>
+          </a>
+          <a href='https://support.google.com/voice/answer/9271827?hl=en&co=GENIE.Platform%3DAndroid' target='blank' className='list_links'>
+            <ListItem className='list_Item'>
+              <BsQuestionCircle style={{color:"#000"}} />
+              <div className='listItems'>Help & Feedback</div>
+            </ListItem>
+          </a>
         </List>
 
         <Divider />
 
         <List className='listStyles'>
+        <a href='https://drive.google.com/drive/my-drive' target='blank' className='list_links'>
           <ListItem className='list_Item'>
-            <img className='slidesImage' src="/images/317713_drive_google_google drive_icon.png" alt="" />
+            <img className='slidesImage' src="/images/drive.png" alt="" />
             <div className='listItems'>Drive</div>
           </ListItem>
+        </a>
         </List>
       </div>
       

@@ -42,7 +42,7 @@ function CenteredTabs({formRefId}) {
   const [value, setValue] = useState(0);
   const [responseCount , setResponseCount] = useState(0);
   const [accepting , setAccepting] = useState(true)
-  const {setAccept} = useFormId();
+  const {setAccept , accept} = useFormId();
 
   useEffect(() => {
     fetchResponseCount();
@@ -60,10 +60,11 @@ function CenteredTabs({formRefId}) {
   }
 
   const handleAccept = (e) => {
-    console.log(e.target.checked);
+    // console.log(e.target.checked);
     const newChecked = e.target.checked
     setAccepting(e.target.checked)
     setAccept(newChecked)
+    console.log(accept);
   }
 
   return (
