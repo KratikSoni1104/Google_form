@@ -27,7 +27,7 @@
   .login_text {
     text-align: center;
     color: #fff;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Pacifico', 'cursive';
     margin-bottom: 20px;
     font-size: 25px;
     margin-top: 0;
@@ -87,6 +87,8 @@
   background: #ABBCCA;
   border: 1px solid #ccc;
   border-radius: 4px;
+  /* color:#fff; */
+  font-weight: 700;
 }
 
 .loginButton {
@@ -97,6 +99,7 @@
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
+  font-family: 'Pacifico', 'cursive';
   background-image: linear-gradient(to right, #90188e, #7a2891, #643190, #4e378d, #383a88, #233b7f, #0f3a73, #003867, #003353, #002b3d, #002228, #021918);
   border-radius: 15px;
 }
@@ -126,7 +129,8 @@
     height: 100vh;
     overflow-x:hidden;
     background: rgb(2,0,36);
-    font-family: 'Google Sans' ,'Roboto', Arial, sans-serif;
+    font-family: 'Pacifico', 'cursive';
+    /* font-family: 'Google Sans' ,'Roboto', Arial, sans-serif; */
     background-image: linear-gradient(to left top, #04152d, #121738, #261540, #3c0f43, #520040);
 }
 
@@ -189,4 +193,5 @@ h2 {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  font-family: 'Pacifico', 'cursive';
 }
