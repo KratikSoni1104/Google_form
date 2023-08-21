@@ -20,7 +20,7 @@ function ViewForm() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        //console.log(formId);
+        console.log("accept" , accept);
         fetchFormData(formId);
     }, [formId]);
 
@@ -111,16 +111,16 @@ function ViewForm() {
 
         console.log(answer);
         
-        if(accept) {
-            try {
+        try {
+            if(accept) {
                 const res = await axios.post(`${BackEnd_Url}/api/form/submit/${formId}`, {
                     formId:formId,
                     answers:answer
                 })
                 console.log(res);
-            } catch(err) {
-                console.log(err);
-            }
+            }  
+        } catch(err) {
+            console.log(err);
         }
 
         try {

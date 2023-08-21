@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { IconButton, Paper, Switch, Tabs, Typography } from '@mui/material';
 import { Tab } from '@mui/material';
 import PropTypes from 'prop-types';
@@ -43,6 +43,7 @@ function CenteredTabs({formRefId}) {
   const [responseCount , setResponseCount] = useState(0);
   const [accepting , setAccepting] = useState(true)
   const {setAccept , accept} = useFormId();
+  var currentCheck = useRef(null);
 
   useEffect(() => {
     fetchResponseCount();
@@ -61,10 +62,10 @@ function CenteredTabs({formRefId}) {
 
   const handleAccept = (e) => {
     // console.log(e.target.checked);
-    const newChecked = e.target.checked
-    setAccepting(e.target.checked)
-    setAccept(newChecked)
-    console.log(accept);
+    currentCheck.current = e.target.checked
+    setAccepting(currentCheck.current)
+    setAccept(currentCheck.current)
+    console.log(currentCheck.current);
   }
 
   return (
