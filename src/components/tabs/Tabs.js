@@ -8,6 +8,7 @@ import "./tabs.css"
 import { BackEnd_Url } from '../../services/config';
 import axios from 'axios';
 import {useFormId} from "../../context/FormContext"
+import {useFormId} from "../../context/FormContext";
 
 export const revalidate = 0
 
@@ -40,12 +41,13 @@ function allyProps(index) {
   };
 }
 
-function CenteredTabs({formRefId}) {
+function CenteredTabs() {
   const [value, setValue] = useState(0);
   const [responseCount , setResponseCount] = useState(0);
   const [accepting , setAccepting] = useState(true)
   const {setAccept , accept} = useFormId();
   var currentCheck = useRef(null);
+  const {formId} = useFormId();
 
   useEffect(() => {
     fetchResponseCount();
@@ -53,7 +55,7 @@ function CenteredTabs({formRefId}) {
 
   const fetchResponseCount = () => {
     try{
-      const res = axios.get(`${BackEnd_Url}/api/form/responseCount/${formRefId}`) 
+      const res = axios.get(`${BackEnd_Url}/api/form/responseCount/${formId}`) 
       res.then((resolve) => {
         setResponseCount(resolve.data.count)
       })
@@ -66,7 +68,7 @@ function CenteredTabs({formRefId}) {
     // console.log(e.target.checked);
     currentCheck.current = e.target.checked
     try{
-      const res = axios.put(`${BackEnd_Url}/api/form/statusUpdate/${formRefId}` , {status:currentCheck.current})
+      const res = axios.put(`${BackEnd_Url}/api/form/statusUpdate/${formId}` , {status:currentCheck.current})
     } catch(err) {
       console.log(err);
     }
@@ -91,7 +93,7 @@ function CenteredTabs({formRefId}) {
         </Tabs>
 
         <TabPanel value={value} index={0}>
-          <Question_form formRefId={formRefId}/>
+          <Question_form formId={formId}/>
         </TabPanel>
 
         <TabPanel value={value} index={1}>

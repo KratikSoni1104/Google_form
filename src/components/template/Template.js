@@ -6,11 +6,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios"
 import { BackEnd_Url } from '../../services/config'
 import {HashContext} from "../../context/HashContext"
+import {useFormId} from "../../context/FormContext"
 
 function Template() {
     const navigate = useNavigate();
     const {userId , dispatch} = useContext(HashContext)
     console.log("user id" , userId);
+    const {setFormId} = useFormId();
 
     const createForm = async () => {       
         var questions_list=[{question:"Question", questionType: "radio", options:[{optionText:"option 1"}], open: true, required:false}]
@@ -23,6 +25,7 @@ function Template() {
                 createdBy: userId,
                 status:true,
             })
+            setFormId(res.data._id)
             console.log(res.data);
             navigate(`/form/${res.data._id}` , {state:{id:res.data._id}})
         } catch(err) {

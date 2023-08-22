@@ -13,15 +13,17 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useStateValue } from '../../Store/Store';
 import { BackEnd_Url } from '../../services/config';
 import { HashContext } from '../../context/HashContext';
+import { useFormId } from '../../context/FormContext';
 
-function QuestionForm({formRefId}) {
+function QuestionForm() {
 
     const [docName , setDocName] = useState("Untitled document")
 
     const [docDesc , setDocDesc] = useState("Add Description")
+    const {formId} = useFormId()
 
     //const {formRefId} = useContext(HashContext);
-    const id = formRefId
+    const id = formId
     
 
     // console.log(id);
