@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { FolderOpen , ColorLens , MoreVert, AirplaySharp} from '@mui/icons-material'
 import {FiStar ,FiSettings} from "react-icons/fi"
 import { IconButton , Avatar, DialogActions, DialogContent, DialogTitle, Dialog} from '@mui/material'
@@ -22,6 +22,7 @@ function FormHeader() {
     var [{doc_name} , dispatch] = useStateValue();
     const navigate = useNavigate();
     const [docName , setDocName] = useState("Untitled Form")
+    var docRef = useRef(null)
     const {formId} = useFormId();
 
     const handleCopyLink = async () => {
@@ -48,9 +49,10 @@ function FormHeader() {
 
     const handleFormName = async (e) => {
         setDocName(e.target.value);
+        docRef.current = e.target.value;
         try {
             await axios.put(`${BackEnd_Url}/api/form/updateData/${formId}`, {
-                doc_name : docName,
+                doc_name : docRef.current,
             });
         } catch (err) {
             console.error('Error updating document name:', err);
