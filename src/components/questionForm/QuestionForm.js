@@ -20,8 +20,9 @@ function QuestionForm() {
     const [docName , setDocName] = useState("Untitled document")
 
     const [docDesc , setDocDesc] = useState("Add Description")
-    const [selectOptionId , setSelectOptionId] = useState("Select Option")
+    const [selectOptionId , setSelectOptionId] = useState("")
     const {formId} = useFormId()
+    // setSelectOptionId("select Option")
 
     //const {formRefId} = useContext(HashContext);
     const id = formId
@@ -295,7 +296,8 @@ function QuestionForm() {
                                             <div className='add_question_top'>
                                                 <input type="text" className='question' placeholder='Question' value={ques.question} onChange={e => handleQuestion(e , i)}/>
                                                 {/* <CropOriginal style={{color:"#5f6368"}} /> */}
-                                                <Select value={selectOptionId}>
+                                                <Select value={selectOptionId} displayEmpty style={{height:"40px"}}>
+                                                    <MenuItem value="" disabled>Select an option</MenuItem>
                                                     <MenuItem id="text" value="text" onClick={() => {handleQuestionType("text" , i)}}><Subject style={{marginRight:"10px" , color:"#70757a"}} />  Paragraph</MenuItem>
                                                     <MenuItem id="checkbox" value="checkbox" onClick={() => handleQuestionType("checkbox" , i)}><CheckBox style={{marginRight:"10px" , color:"#70757a"}}  />  Checkboxes</MenuItem>
                                                     <MenuItem id="radio" value="radio" onClick={() => handleQuestionType("radio" , i)}><Radio style={{marginRight:"10px" , color:"#70757a"}} />  Multiple Choice</MenuItem>
