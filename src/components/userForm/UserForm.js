@@ -117,7 +117,7 @@ function UserForm() {
                                             <label>                                                
                                             <input
 
-                                            type={hidden}
+                                            type="hidden"
                                             name={idx}
                                             value={op.optionsText}
                                             className="form-check-input"
