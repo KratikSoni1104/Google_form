@@ -21,7 +21,7 @@ function Template() {
                 doc_desc:"Add Description",
                 questions: questions_list,
                 createdBy: userId,
-                status:"active",
+                status:true,
             })
             console.log(res.data);
             navigate(`/form/${res.data._id}` , {state:{id:res.data._id}})
