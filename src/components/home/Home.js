@@ -19,7 +19,8 @@ function Home() {
     const [files , setFiles] = useState([]); // to store the forms of user
     const navigate = useNavigate();
     const [{doc_name , doc_desc } , dispatch] = useStateValue();
-    const {userId} = useContext(HashContext);
+    const {user} = useContext(HashContext);
+    const userId = user._id;
     const {formId , setFormId} = useFormId()
 
     // Use useRef to store the formId
