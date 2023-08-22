@@ -19,8 +19,9 @@ function FormHeader() {
     const [copied, setCopied] = useState(false);
     const [shareableLink , setShareableLink] = useState("")
     //const {formId} = useContext(HashContext)
-    const [{doc_name} , dispatch] = useStateValue();
+    var [{doc_name} , dispatch] = useStateValue();
     const navigate = useNavigate();
+    const [docName , setDocName] = useState("Untitled Form")
     const {formId} = useFormId();
 
     const handleCopyLink = async () => {
@@ -45,8 +46,15 @@ function FormHeader() {
         setOpenDialog(true);
     }
 
-    const handleFormName = (e) => {
-        
+    const handleFormName = async (e) => {
+        setDocName(e.target.value);
+        try {
+            await axios.put(`${BackEnd_Url}/api/form/updateData/${formId}`, {
+                doc_name : docName,
+            });
+        } catch (err) {
+            console.error('Error updating document name:', err);
+        }
     }
 
 
@@ -55,7 +63,7 @@ function FormHeader() {
     <div className='form_header'>
         <div className='form_header_left'>
             <img className='formImg' src="/images/form_image.png" alt="no image" />
-            <input className='form_name' type="text" placeholder='Untitled Form' value={doc_name} onChange={e => handleFormName(e)}/>
+            <input className='form_name' type="text" placeholder='Untitled Form' onChange={e => handleFormName(e)}/>
             <FolderOpen className='form_header_icon' style={{marginRight:"10px"}}></FolderOpen>
             <FiStar className='form_header_icon' style={{marginRight:"10px"}} />
             <span>All changes saved in Drive</span>
