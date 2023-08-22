@@ -17,6 +17,7 @@ function Submitted() {
   useEffect(() => {
     try{
       const res = axios.get(`${BackEnd_Url}/api/form/readStatus/${formId}`);
+      console.log("hello" , res.status);
       setAccept(res.data);
     }
     catch(err){
