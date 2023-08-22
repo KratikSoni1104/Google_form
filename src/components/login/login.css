@@ -6,6 +6,7 @@
     font-family: Arial, sans-serif;
     margin-top: 50px;
     width: 350px;
+    
   }
   
   .container {
@@ -14,6 +15,9 @@
     border-radius: 5pxbody;
     font-family: 'Roboto', sans-serif;
     border: 1px solid #7603A7;
+    /* background-color: rgba(255, 255, 255, 0.9); Semi-transparent background */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* For Safari support */
   }
 
   .container {
@@ -27,7 +31,8 @@
   .login_text {
     text-align: center;
     color: #fff;
-    font-family: 'Pacifico', 'cursive';
+    font-family: 'Kanit', sans-serif;
+    /* font-family: 'Pacifico', 'cursive'; */
     margin-bottom: 20px;
     font-size: 25px;
     margin-top: 0;
@@ -84,7 +89,7 @@
 .password {
   margin-bottom: 10px;
   padding: 8px;
-  background: #ABBCCA;
+  background: #FCFCFC;
   border: 1px solid #ccc;
   border-radius: 4px;
   /* color:#fff; */
@@ -92,21 +97,22 @@
 }
 
 .loginButton {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #fff;
+  color: #6A40AA;
   border: none;
   padding: 8px;
   border-radius: 4px;
   cursor: pointer;
-  width: 100%;
-  font-family: 'Pacifico', 'cursive';
-  background-image: linear-gradient(to right, #90188e, #7a2891, #643190, #4e378d, #383a88, #233b7f, #0f3a73, #003867, #003353, #002b3d, #002228, #021918);
-  border-radius: 15px;
+  width: 80%;
+  border: 2px solid #643190;
+  /* font-family: 'Pacifico', 'cursive'; */
+  border-radius: 10px;
 }
 
 .loginButton:hover {
-  background-image: linear-gradient(to left, #90188e, #7a2891, #643190, #4e378d, #383a88, #233b7f, #0f3a73, #003867, #003353, #002b3d, #002228, #021918);
-  border-radius: 20px;
+  background-color: #6A40AA;
+  /* border-radius: 20px; */
+  color: white;
   }
 
   .or-divider {
@@ -131,7 +137,7 @@
     background: rgb(2,0,36);
     font-family: 'Pacifico', 'cursive';
     /* font-family: 'Google Sans' ,'Roboto', Arial, sans-serif; */
-    background-image: linear-gradient(to left top, #04152d, #121738, #261540, #3c0f43, #520040);
+    background-image: linear-gradient(to left top, #ffffff, #d5ceed, #af9fd9, #8c70c2, #6a40aa);
 }
 
 .google-login {

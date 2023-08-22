@@ -16,11 +16,17 @@ function ViewForm() {
     const [doc_name , setDoc_name] = useState("");
     const [doc_desc , setDoc_desc] = useState("");
     const [answer , setAnswer] = useState([]);
-    const {accept} = useFormId();
+    const [accept , setAccept] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("accept" , accept);
+        try{
+            const res = axios.get(`${BackEnd_Url}/api/form/readStatus/${formId}`);
+            setAccept(res.data);
+          }
+          catch(err){
+            console.log(err)
+          }
         fetchFormData(formId);
     }, [formId]);
 

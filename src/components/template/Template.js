@@ -20,7 +20,8 @@ function Template() {
                 doc_name:"Untitled Form",
                 doc_desc:"Add Description",
                 questions: questions_list,
-                createdBy: userId
+                createdBy: userId,
+                status:"active",
             })
             console.log(res.data);
             navigate(`/form/${res.data._id}` , {state:{id:res.data._id}})

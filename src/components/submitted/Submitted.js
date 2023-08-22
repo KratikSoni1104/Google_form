@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useStateValue } from '../../Store/Store'
 import "./submitted.css"
 import { Typography } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {useFormId} from "../../context/FormContext"
+import axios from 'axios';
+import { BackEnd_Url } from '../../services/config';
 
 function Submitted() {
 
@@ -11,7 +13,16 @@ function Submitted() {
   const navigate = useNavigate();
   const location = useLocation();
   const formId = location.state.formId || {};
-  const accept = location.state.accept || {};
+  const [accept , setAccept] = useState(true);
+  useEffect(() => {
+    try{
+      const res = axios.get(`${BackEnd_Url}/api/form/readStatus/${formId}`);
+      setAccept(res.data);
+    }
+    catch(err){
+      console.log(err)
+    }
+  } , [])
 
   const handleSubmit = () => {
     navigate(-1);

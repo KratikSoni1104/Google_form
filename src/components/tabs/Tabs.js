@@ -9,6 +9,8 @@ import { BackEnd_Url } from '../../services/config';
 import axios from 'axios';
 import {useFormId} from "../../context/FormContext"
 
+export const revalidate = 0
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -63,6 +65,11 @@ function CenteredTabs({formRefId}) {
   const handleAccept = (e) => {
     // console.log(e.target.checked);
     currentCheck.current = e.target.checked
+    try{
+      const res = axios.put(`${BackEnd_Url}/api/form/statusUpdate/${formRefId}` , {status:currentCheck.current})
+    } catch(err) {
+      console.log(err);
+    }
     setAccepting(currentCheck.current)
     setAccept(currentCheck.current)
     console.log(currentCheck.current);
