@@ -20,6 +20,7 @@ function QuestionForm() {
     const [docName , setDocName] = useState("Untitled document")
 
     const [docDesc , setDocDesc] = useState("Add Description")
+    const [selectOptionId , setSelectOptionId] = useState("Select Option")
     const {formId} = useFormId()
 
     //const {formRefId} = useContext(HashContext);
@@ -79,7 +80,7 @@ function QuestionForm() {
                     type: "SET_QUESTIONS",
                     questions: question_data,
                 });
-    
+                
                 //console.log(question_data);
             } catch (err) {
                 console.log(err);
@@ -99,6 +100,7 @@ function QuestionForm() {
     }
 
     function handleQuestionType(type,  i ) {
+        setSelectOptionId(type)
         var newQues = [...questions]
         newQues[i].questionType = type
         setQuestions(newQues)
@@ -268,8 +270,8 @@ function QuestionForm() {
                                         <div key={j} >
 
                                         <div style={{display: 'flex'}}>
-                                            <FormControlLabel style={{marginLeft: "5px" ,marginBottom: "5px"}} disabled control={<input type={ques.questionType}
-                                            color="primary" style={{marginRight: '3px'}} required={ques.type}/>} label={
+                                            <FormControlLabel style={{marginLeft: "5px" ,marginBottom: "5px"}} disabled control={ques.questionType!== "text" ? <input type={ques.questionType}
+                                            color="primary" style={{marginRight: '3px'}} required={ques.type}/> : <input type="hidden" />} label={
                                                 <Typography styles={{fontFamily: 'Roboto,Arial, sans-serif',
                                                     fontSize: '13px',
                                                     fontweight: '400',
@@ -292,8 +294,8 @@ function QuestionForm() {
                                         { !ques.answer ? (<AccordionDetails className='add_question'>
                                             <div className='add_question_top'>
                                                 <input type="text" className='question' placeholder='Question' value={ques.question} onChange={e => handleQuestion(e , i)}/>
-                                                <CropOriginal style={{color:"#5f6368"}} />
-                                                <Select>
+                                                {/* <CropOriginal style={{color:"#5f6368"}} /> */}
+                                                <Select value={selectOptionId}>
                                                     <MenuItem id="text" value="text" onClick={() => {handleQuestionType("text" , i)}}><Subject style={{marginRight:"10px" , color:"#70757a"}} />  Paragraph</MenuItem>
                                                     <MenuItem id="checkbox" value="checkbox" onClick={() => handleQuestionType("checkbox" , i)}><CheckBox style={{marginRight:"10px" , color:"#70757a"}}  />  Checkboxes</MenuItem>
                                                     <MenuItem id="radio" value="radio" onClick={() => handleQuestionType("radio" , i)}><Radio style={{marginRight:"10px" , color:"#70757a"}} />  Multiple Choice</MenuItem>
@@ -411,10 +413,10 @@ function QuestionForm() {
                                         }
                                         
                                         {!ques.answer ? <div className='question_edit'>
-                                            <AddCircleOutline className='edit' onClick={addNewQuestion}/>
-                                            <OndemandVideo className='edit' />
-                                            <CropOriginal className='edit' />
-                                            <TextFields className='edit' />
+                                            <AddCircleOutline style={{cursor:"pointer"}} className='edit' onClick={addNewQuestion}/>
+                                            <OndemandVideo  style={{cursor:"not-allowed"}} className='edit' />
+                                            <CropOriginal style={{cursor:"not-allowed"}} className='edit' />
+                                            <TextFields style={{cursor:"not-allowed"}} className='edit' />
                                         </div> : " "}
 
                                     </div>
