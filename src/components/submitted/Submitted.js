@@ -19,6 +19,7 @@ function Submitted() {
       const res = axios.get(`${BackEnd_Url}/api/form/readStatus/${formId}`);
       console.log("hello" , res);
       res.then((resolve) => {
+        console.log(resolve.data);
         setAccept(resolve.data)
       })
     }
