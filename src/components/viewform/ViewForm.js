@@ -124,6 +124,7 @@ function ViewForm() {
                     answers:answer
                 })
                 console.log(res);
+                console.log("submitted successfully!");
             }  
         } catch(err) {
             console.log(err);
@@ -215,7 +216,7 @@ function ViewForm() {
                 }
 
                 <div className='user_form_submit'>
-                    <Button variant="contained" color="primary" onClick={submit} style={{fontSize:"14px"}}>Submit</Button>
+                    <Button variant="contained" color="primary" onClick={() => {submit()}} style={{fontSize:"14px"}}>Submit</Button>
                 </div>
 
                 <div className='user_footer'>
