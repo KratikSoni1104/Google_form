@@ -44,13 +44,22 @@ function allyProps(index) {
 function CenteredTabs() {
   const [value, setValue] = useState(0);
   const [responseCount , setResponseCount] = useState(0);
-  const [accepting , setAccepting] = useState(true)
+  const [accepting , setAccepting] = useState(null)
   const {setAccept , accept} = useFormId();
   var currentCheck = useRef(null);
   const {formId} = useFormId();
 
   useEffect(() => {
     fetchResponseCount();
+    try{
+      const res = axios.get(`${BackEnd_Url}/api/form/readStatus/${formId}`);
+      res.then((resolve) => {
+        console.log(resolve.data);
+        setAccepting(resolve.data);
+      })
+    }catch(err) {
+      console.error(err);
+    }
   } ,[])
 
   const fetchResponseCount = () => {

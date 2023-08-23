@@ -22,9 +22,12 @@ function ViewForm() {
     useEffect(() => {
         try{
             const res = axios.get(`${BackEnd_Url}/api/form/readStatus/${formId}`);
-            setAccept(res.data);
+            res.then((resolve) => {
+                console.log(resolve.data);
+                setAccept(resolve.data);
+            })
             console.log("hello" ,accept);
-            console.log(res);
+            
           }
           catch(err){
             console.log(err)
