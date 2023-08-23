@@ -24,7 +24,7 @@ function ViewForm() {
             const res = axios.get(`${BackEnd_Url}/api/form/readStatus/${formId}`);
             setAccept(res.data);
             console.log("hello" ,accept);
-            console.log(res.data);
+            console.log(res);
           }
           catch(err){
             console.log(err)
